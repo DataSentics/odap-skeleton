@@ -1,0 +1,29 @@
+parameters:
+  featurefactory:
+    features:
+      table: 'odap_features.features_{entity}'
+      path: 'dbfs:/odap_features/features_{entity}.delta'
+
+    metadata:
+      table: 'odap_features.metadata_{entity}'
+      path: 'dbfs:/odap_features/metadata_{entity}.delta'
+    
+    entities:
+      __entity__:
+        id_column: "__id_column__"
+        id_column_type: "__id_column_type__"
+
+  segmentfactory:
+    table: 'odap_segments.{segment}'
+    path: 'dbfs:/odap_segments/{segment}.delta'
+
+    segments:
+      __your_segment__:
+        exports:
+          - azure_blob
+
+    exports:
+      destinations:
+        azure_blob:
+          attributes:
+            - __your_attributes__
