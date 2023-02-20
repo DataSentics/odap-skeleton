@@ -1,11 +1,4 @@
 # Databricks notebook source
-# MAGIC %pip install odap==1.0.0
-
-# COMMAND ----------
-
-# Imports
-
-# COMMAND ----------
 
 dbutils.widgets.text("timestamp", "2020-12-12")
 
