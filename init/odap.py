@@ -1,2 +1,2 @@
 # Databricks notebook source
-# MAGIC %pip install odap==0.1.9
+# MAGIC %pip install odap==0.1.10

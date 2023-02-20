@@ -3,5 +3,18 @@ create widget text timestamp default "2020-12-12"
 
 -- COMMAND ----------
 
-select
-  -- TODO: __your_logic__
+select 1 as your_id, getargument("timestamp") as timestamp, 10 as example_sql_feature
+  -- TODO: replace with your logic
+
+-- COMMAND ----------
+
+-- MAGIC %python
+-- MAGIC metadata = {
+-- MAGIC     "table": "features",
+-- MAGIC     "category": "",
+-- MAGIC     "features": {
+-- MAGIC         "example_sql_feature": {
+-- MAGIC             "description": "Example SQL feature",
+-- MAGIC         }
+-- MAGIC     }
+-- MAGIC }
