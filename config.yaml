@@ -1,29 +1,39 @@
 parameters:
   featurefactory:
+    catalog: "hive_metastore"
+    database: "odap_features_{entity}"
     features:
-      table: 'odap_features.features_{entity}'
-      path: 'dbfs:/odap_features/features_{entity}.delta'
+      latest_table: "latest"
 
     metadata:
-      table: 'odap_features.metadata_{entity}'
-      path: 'dbfs:/odap_features/metadata_{entity}.delta'
-    
+      table: "metadata"
+      
+    #ids:
+    #  table: "catalog.db.ids_table"
+
     entities:
-      __entity__:
-        id_column: "__id_column__"
-        id_column_type: "__id_column_type__"
+      # 1. rename your entity e.g. client, customer, account, ...
+      your_entity_name:
+        # 2. change to id column which identifies your entity
+        id_column: "your_id"
+        id_column_type: "long"
 
   segmentfactory:
-    table: 'odap_segments.{segment}'
-    path: 'dbfs:/odap_segments/{segment}.delta'
+    catalog: "hive_metastore"
+    database: "odap_segments"
+    log:
+      table: "export_log"
 
-    segments:
-      __your_segment__:
-        exports:
-          - azure_blob
+    segment:
+      table: "segment_log"
 
-    exports:
-      destinations:
-        azure_blob:
-          attributes:
-            - __your_attributes__
+    destinations:
+      # 3. rename destination to export to
+      your_destination:
+        # 4. change to the name of your destination implementation .py file in the `export` folder
+        type: "your_destination_type"
+
+  usecasefactory:
+    catalog: "hive_metastore"
+    database: "odap_use_cases"
+    table: "use_cases"
