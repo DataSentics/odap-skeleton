@@ -1,9 +1,4 @@
 parameters:
-  usecasefactory:
-    catalog: "hive_metastore"
-    database: "odap_use_cases"
-    table: "use_cases"
-    
   featurefactory:
     catalog: "hive_metastore"
     database: "odap_features_{entity}"
@@ -12,6 +7,9 @@ parameters:
 
     metadata:
       table: "metadata"
+      
+    #ids:
+    #  table: "catalog.db.ids_table"
 
     entities:
       # 1. rename your entity e.g. client, customer, account, ...
@@ -24,7 +22,7 @@ parameters:
     catalog: "hive_metastore"
     database: "odap_segments"
     log:
-      table: "export_logs"
+      table: "export_log"
 
     segment:
       table: "segment_log"
@@ -34,3 +32,8 @@ parameters:
       your_destination:
         # 4. change to the name of your destination implementation .py file in the `export` folder
         type: "your_destination_type"
+
+  usecasefactory:
+    catalog: "hive_metastore"
+    database: "odap_use_cases"
+    table: "use_cases"

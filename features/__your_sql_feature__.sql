@@ -3,8 +3,10 @@ create widget text timestamp default "2020-12-12"
 
 -- COMMAND ----------
 
-select 1 as your_id, getargument("timestamp") as timestamp, 10 as example_sql_feature
-  -- TODO: replace with your logic
+select
+  1 as your_id,
+  timestamp(getargument("timestamp")) as timestamp,
+  10 as example_sql_feature -- TODO: replace with your logic
 
 -- COMMAND ----------
 
